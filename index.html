@@ -45,13 +45,29 @@
     .experience h3 { font-size:1.24rem; letter-spacing:-.025em; margin-bottom:8px; }
     .role { color:var(--muted); font-weight:500; }
     .experience p { color:#c6d0c5; max-width:775px; margin:0; }
-    .work-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:16px; }
-    .work-card { min-height:345px; padding:28px; background:var(--surface); border:1px solid var(--line); display:flex; flex-direction:column; transition:transform .2s ease,border-color .2s ease; }
-    .work-card:hover { transform:translateY(-4px); border-color:#6a9775; }
-    .work-card .number { color:var(--accent); letter-spacing:.14em; font-weight:800; font-size:.76rem; }
-    .work-card h3 { font-size:1.55rem; letter-spacing:-.035em; line-height:1.16; margin:20px 0 15px; }
-    .work-card p { color:#c2cdc2; font-size:.94rem; line-height:1.6; margin:0 0 22px; }
-    .work-card .path { margin-top:auto; padding-top:18px; border-top:1px solid var(--line); color:var(--accent); font-size:.78rem; font-weight:750; letter-spacing:.025em; }
+    .work-list { display:grid; gap:20px; }
+    .case-study { position:relative; overflow:hidden; padding:34px; background:linear-gradient(135deg,var(--surface) 0%,#161d1a 100%); border:1px solid var(--line); transition:transform .2s ease,border-color .2s ease,background .2s ease; }
+    .case-study:before { content:""; position:absolute; left:0; top:0; bottom:0; width:3px; background:var(--accent-deep); transition:background .2s ease; }
+    .case-study:hover { transform:translateY(-3px); border-color:#648a70; background:linear-gradient(135deg,#1b2521 0%,#151c19 100%); }
+    .case-study:hover:before { background:var(--accent); }
+    .case-meta { display:flex; align-items:center; gap:14px; margin-bottom:24px; }
+    .case-index { color:var(--accent); font-size:.78rem; font-weight:850; letter-spacing:.14em; }
+    .case-type { padding:5px 9px; border:1px solid var(--line); border-radius:999px; color:var(--muted); font-size:.68rem; font-weight:800; letter-spacing:.12em; text-transform:uppercase; }
+    .case-main { display:grid; grid-template-columns:minmax(0,1fr) 245px; gap:46px; align-items:start; }
+    .case-copy h3 { max-width:720px; margin:0 0 12px; font-size:clamp(1.65rem,3vw,2.35rem); line-height:1.08; letter-spacing:-.045em; }
+    .case-summary { max-width:760px; margin:0 0 27px; color:#d0d8d0; font-size:1rem; line-height:1.68; }
+    .case-details { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:18px; }
+    .case-detail { padding-top:15px; border-top:1px solid var(--line); }
+    .case-detail .label { display:block; margin-bottom:7px; color:var(--accent); font-size:.66rem; font-weight:850; letter-spacing:.14em; text-transform:uppercase; }
+    .case-detail p { margin:0; color:#b8c4ba; font-size:.86rem; line-height:1.55; }
+    .case-impact { min-height:190px; padding:22px; display:flex; flex-direction:column; justify-content:flex-end; background:var(--surface-2); border:1px solid var(--line); }
+    .case-impact span { margin-bottom:auto; color:var(--muted); font-size:.64rem; font-weight:850; letter-spacing:.13em; text-transform:uppercase; }
+    .case-impact strong { display:block; color:var(--accent); font-size:clamp(2rem,4vw,3rem); line-height:1; letter-spacing:-.055em; }
+    .case-impact p { margin:9px 0 0; color:#d2dbd1; font-size:.82rem; line-height:1.45; }
+    .attack-chain { display:flex; align-items:center; gap:9px; flex-wrap:wrap; margin-top:27px; padding-top:21px; border-top:1px solid var(--line); }
+    .attack-chain .chain-label { margin-right:5px; color:#7f9184; font-size:.64rem; font-weight:850; letter-spacing:.13em; text-transform:uppercase; }
+    .attack-chain .step { padding:6px 10px; background:#111714; border:1px solid var(--line); color:#cbd5cb; font-size:.76rem; font-weight:650; }
+    .attack-chain .arrow { color:var(--accent-deep); font-weight:900; }
     .credential-grid { display:grid; grid-template-columns:1fr 1fr; gap:40px; }
     .credential-group h3 { color:var(--accent); text-transform:uppercase; font-size:.76rem; letter-spacing:.16em; margin-bottom:20px; }
     .credential { display:block; padding:14px 0; border-top:1px solid var(--line); font-weight:650; }
@@ -68,9 +84,9 @@
     footer h2 { font-size:clamp(2rem,4vw,3.4rem); letter-spacing:-.05em; line-height:1.1; margin:8px 0 18px; }
     footer p { color:var(--muted); margin:0; }
     .footnote { border-top:1px solid var(--line); margin-top:65px; padding-top:20px; color:#87978b; font-size:.79rem; display:flex; justify-content:space-between; gap:12px; }
-    @media(max-width:900px) { .hero-grid { gap:5%; } .section-head,.experience { grid-template-columns:180px 1fr; gap:24px; } .work-card { padding:22px; } }
-    @media(max-width:700px) { .wrap { width:min(100% - 38px,560px); } .topbar .wrap { min-height:68px; } nav { gap:14px; font-size:.78rem; } nav a:nth-child(2) { display:none; } .hero { padding:48px 0 66px; } .hero-grid { grid-template-columns:1fr; gap:40px; } h1 { font-size:clamp(3.15rem,13vw,5.2rem); } .portrait-wrap { width:min(76%,295px); margin:0 auto; } .portrait-note { right:-10px; } section { padding:60px 0; } .section-head,.experience { display:block; } .section-head h2 { margin-bottom:12px; } .date { padding:0 0 9px; } .work-grid,.credential-grid,.education-grid { grid-template-columns:1fr; } .work-card { min-height:auto; } .credential-grid { gap:32px; } .footer-grid { display:block; } .footer-grid .button { margin-top:26px; } }
-    @media(prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } .work-card { transition:none; } }
+    @media(max-width:900px) { .hero-grid { gap:5%; } .section-head,.experience { grid-template-columns:180px 1fr; gap:24px; } .case-main { grid-template-columns:minmax(0,1fr) 210px; gap:28px; } .case-study { padding:28px; } }
+    @media(max-width:700px) { .wrap { width:min(100% - 38px,560px); } .topbar .wrap { min-height:68px; } nav { gap:14px; font-size:.78rem; } nav a:nth-child(2) { display:none; } .hero { padding:48px 0 66px; } .hero-grid { grid-template-columns:1fr; gap:40px; } h1 { font-size:clamp(3.15rem,13vw,5.2rem); } .portrait-wrap { width:min(76%,295px); margin:0 auto; } .portrait-note { right:-10px; } section { padding:60px 0; } .section-head,.experience { display:block; } .section-head h2 { margin-bottom:12px; } .date { padding:0 0 9px; } .credential-grid,.education-grid { grid-template-columns:1fr; } .case-study { padding:23px; } .case-main { grid-template-columns:1fr; gap:24px; } .case-impact { min-height:150px; } .case-details { grid-template-columns:1fr; gap:13px; } .credential-grid { gap:32px; } .footer-grid { display:block; } .footer-grid .button { margin-top:26px; } }
+    @media(prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } .case-study { transition:none; } }
   </style>
 </head>
 <body>
@@ -98,11 +114,58 @@
       <article class="experience"><div class="date">2018 — 2019</div><div><h3>Earlier experience</h3><p>Started in security consulting and completed my first penetration test before specialising in offensive security.</p></div></article>
     </div></section>
     <section id="work"><div class="wrap">
-      <div class="section-head"><h2>Selected work</h2><p>Three anonymised engagements. The focus is the path tested and the impact actually demonstrated.</p></div>
-      <div class="work-grid">
-        <article class="work-card"><div class="number">01 / RED TEAM · IT/OT</div><h3>From IT access to factory systems.</h3><p>Independently led a manufacturing engagement. Obtained privileged access in IT, tested the IT/OT boundary and demonstrated reach into production infrastructure.</p><div class="path">Identity exposure → weak segmentation → OT access</div></article>
-        <article class="work-card"><div class="number">02 / CLOUD · AZURE</div><h3>From public storage to credentials.</h3><p>Discovered an internet-accessible Blob with a virtual hard disk. Mounted and analysed it, then traced the contents to a password database.</p><div class="path">Public Blob → VHD → credential exposure</div></article>
-        <article class="work-card"><div class="number">03 / ACTIVE DIRECTORY</div><h3>From backups to infrastructure control.</h3><p>Found accessible VMware backups on network shares. Their contents exposed privileged credentials and administrative access across dozens of ESXi hosts.</p><div class="path">Backup share → credentials → ESXi administration</div></article>
+      <div class="section-head"><h2>Selected work</h2><p>Representative, anonymised engagements. Rather than listing tools, these show how I follow small exposures until they become a verified attack path with concrete impact.</p></div>
+      <div class="work-list">
+        <article class="case-study">
+          <div class="case-meta"><span class="case-index">01</span><span class="case-type">Red Team · IT/OT</span></div>
+          <div class="case-main">
+            <div class="case-copy">
+              <h3>From a service account to a factory network.</h3>
+              <p class="case-summary">Independently delivered an end-to-end Red Team engagement for an industrial environment spanning corporate IT and OT. An early identity weakness became the entry point for a much larger compromise once the trust boundary between the two networks was tested.</p>
+              <div class="case-details">
+                <div class="case-detail"><span class="label">Initial foothold</span><p>Kerberoasting exposed credentials for an account holding Domain Admin privileges.</p></div>
+                <div class="case-detail"><span class="label">Attack path</span><p>After domain compromise, I assessed segmentation rather than treating the IT boundary as the end of the engagement.</p></div>
+                <div class="case-detail"><span class="label">Validated impact</span><p>Weak IT/OT segregation enabled a pivot into the OT network and access to factory infrastructure.</p></div>
+              </div>
+            </div>
+            <aside class="case-impact"><span>Demonstrated impact</span><strong>IT → OT</strong><p>Domain compromise extended into the production environment.</p></aside>
+          </div>
+          <div class="attack-chain"><span class="chain-label">Attack path</span><span class="step">Kerberoasting</span><span class="arrow">→</span><span class="step">Domain Admin</span><span class="arrow">→</span><span class="step">Segmentation failure</span><span class="arrow">→</span><span class="step">OT / factory access</span></div>
+        </article>
+
+        <article class="case-study">
+          <div class="case-meta"><span class="case-index">02</span><span class="case-type">Cloud Security · Azure</span></div>
+          <div class="case-main">
+            <div class="case-copy">
+              <h3>From a public Blob to a credential store.</h3>
+              <p class="case-summary">During an Azure security assessment, I found internet-accessible storage containing a virtual disk image. Instead of reporting the exposure in isolation, I followed the data path offline to determine what the disk actually contained and what an attacker could recover from it.</p>
+              <div class="case-details">
+                <div class="case-detail"><span class="label">Exposure</span><p>A publicly accessible Azure Blob allowed retrieval of a VHD from the environment.</p></div>
+                <div class="case-detail"><span class="label">Validation</span><p>I mounted the disk offline and analysed its contents rather than stopping at the storage misconfiguration.</p></div>
+                <div class="case-detail"><span class="label">Validated impact</span><p>The investigation led to a database containing passwords and sensitive credentials.</p></div>
+              </div>
+            </div>
+            <aside class="case-impact"><span>Demonstrated impact</span><strong>Credentials</strong><p>Public cloud storage became a route to sensitive authentication material.</p></aside>
+          </div>
+          <div class="attack-chain"><span class="chain-label">Attack path</span><span class="step">Public Blob</span><span class="arrow">→</span><span class="step">VHD retrieval</span><span class="arrow">→</span><span class="step">Offline mount</span><span class="arrow">→</span><span class="step">Password database</span></div>
+        </article>
+
+        <article class="case-study">
+          <div class="case-meta"><span class="case-index">03</span><span class="case-type">Active Directory · Infrastructure</span></div>
+          <div class="case-main">
+            <div class="case-copy">
+              <h3>From an open share to control of 32 ESXi hosts.</h3>
+              <p class="case-summary">In a large enterprise Active Directory assessment, open network shares exposed VMware backup artefacts. I treated the backups as attack material, mounted them and traced their contents to credentials that materially expanded control beyond the Windows domain.</p>
+              <div class="case-details">
+                <div class="case-detail"><span class="label">Discovery</span><p>Accessible network shares contained VMware backup data that should not have been broadly exposed.</p></div>
+                <div class="case-detail"><span class="label">Attack path</span><p>Mounted backup artefacts revealed vdxuser credentials with privileged access to the virtualisation layer.</p></div>
+                <div class="case-detail"><span class="label">Validated impact</span><p>The recovered credentials provided administrative control across 32 ESXi hosts.</p></div>
+              </div>
+            </div>
+            <aside class="case-impact"><span>Demonstrated impact</span><strong>32 ESXi</strong><p>Administrative control over a significant virtualisation estate.</p></aside>
+          </div>
+          <div class="attack-chain"><span class="chain-label">Attack path</span><span class="step">Open share</span><span class="arrow">→</span><span class="step">VMware backups</span><span class="arrow">→</span><span class="step">vdxuser credentials</span><span class="arrow">→</span><span class="step">ESXi administration</span></div>
+        </article>
       </div>
     </div></section>
     <section id="credentials"><div class="wrap">
